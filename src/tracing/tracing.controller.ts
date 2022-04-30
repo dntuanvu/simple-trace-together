@@ -3,9 +3,7 @@ import {
   Get,
   Post,
   Request,
-  Delete,
   Body,
-  Param,
   UseGuards,
 } from '@nestjs/common';
 
@@ -40,36 +38,6 @@ export class TracingController {
     };
   }
 
-  /* @UseGuards(JwtAuthGuard)
-  @Post('assign')
-  async assign(
-    @Request() req,
-    @Body('incident_id') incident_id: string,
-    @Body('assignee') assignee: string,
-  ) {
-    const creator = req.user;
-    await this.tracingService.assignIncident(incident_id, assignee, creator);
-    return null;
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('acknowledge')
-  async acknowledge(@Request() req, @Body('incident_id') incident_id: string) {
-    console.log(req.user);
-    const assignee = req.user;
-    await this.tracingService.acknowledgeIncident(incident_id, assignee);
-    return null;
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Post('resolve')
-  async resolve(@Request() req, @Body('incident_id') incident_id: string) {
-    console.log(req.user);
-    const assignee = req.user;
-    await this.tracingService.resolveIncident(incident_id, assignee);
-    return null;
-  }*/
-
   @UseGuards(JwtAuthGuard)
   @Get()
   async getAll(@Request() req) {
@@ -79,23 +47,6 @@ export class TracingController {
       tracings,
     };
   }
-
-  /*@UseGuards(JwtAuthGuard)
-  @Get(':tracing_id')
-  async read(@Request() req, @Param('tracing_id') tracing_id: string) {
-    const tracing = await this.tracingService.getSingleTracing(tracing_id);
-
-    return {
-      tracing,
-    };
-  }*/
-
-  /*@UseGuards(JwtAuthGuard)
-  @Delete(':incident_id')
-  async delete(@Request() req, @Param('incident_id') incident_id: string) {
-    await this.tracingService.deleteIncident(incident_id);
-    return null;
-  }*/
 
   @UseGuards(JwtAuthGuard)
   @Get('user')
