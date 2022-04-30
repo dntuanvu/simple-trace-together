@@ -113,10 +113,6 @@ export class TracingService {
     }));
   }
 
-  /*async deleteIncident(incidentId: string) {
-    await this.tracingModel.deleteOne({ _id: incidentId });
-  }*/
-
   private async findTracing(id: string): Promise<Tracing> {
     console.log(`TracingService, findTracing=${id}`)
     let tracing;
